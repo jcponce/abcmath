@@ -17,7 +17,7 @@ Send me a note at  j.ponce@uq.edu.au
 
 //http://creativecommons.org/licenses/by-nc/4.0/
 
-let numMax = 700;
+let numMax = 600;
 let t = 0;
 let h = 0.01;
 let particles = [];
@@ -53,7 +53,7 @@ function setup() {
     //
     resetSketch();
     //background(0);
-    
+    frameRate(60);
 }
 
 function resetSketch() {
