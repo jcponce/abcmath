@@ -41,7 +41,7 @@ function setup() {
  
   pixelDensity(1);
   
-  let canvas = createCanvas(widthApplet, heightApplet, WEBGL);
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes('antialias', true);
   
   console.log(Dw.EasyCam.INFO);
