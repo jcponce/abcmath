@@ -1,5 +1,5 @@
 let color = 360;
-let splatter = 50;
+let splatter = 40;
 let WIDTH = 810;
 let HEIGHT = 560;
 let paint = false;
@@ -134,25 +134,25 @@ function robot(){
     //Body
     fill(0);
     stroke(0);
-    rect(width/2,2*height/8+40,130,90);//head
-    rect(width/2,2*height/8+95,20,20);//neck
-    rect(width/2,2*height/8+155,100,110);//chest
+    rect(width/2,2*height/8+40,100,60);//head
+    rect(width/2,2*height/8+75,15,20);//neck
+    rect(width/2,2*height/8+125,80,90);//chest
     
-    rect(width/2-78,2*height/8+40,20,50);//right ear
-    rect(width/2+78,2*height/8+40,20,50);//left ear
+    rect(width/2-58,2*height/8+40,10,30);//right ear
+    rect(width/2+58,2*height/8+40,10,30);//left ear
     
-    rect(width/2-63,2*height/8+160,20,80);//right arm
-    rect(width/2+63,2*height/8+160,20,80);//left arm
+    rect(width/2-50,2*height/8+130,15,60);//right arm
+    rect(width/2+50,2*height/8+130,15,60);//left arm
     
-    rect(width/2-25,2*height/8+245,20,65);//right leg
-    rect(width/2+25,2*height/8+245,20,65);//left leg
+    rect(width/2-15,2*height/8+202,15,60);//right leg
+    rect(width/2+15,2*height/8+202,15,60);//left leg
     
-    rect(width/2-40,2*height/8-19,10,20);//right antena
-    rect(width/2+40,2*height/8-19,10,20);//left antena
+    rect(width/2-25,2*height/8,10,13);//right antena
+    rect(width/2+25,2*height/8,10,13);//left antena
     
     //Eyes
-    eye("LeftEye",width/2-26,2*height/8+30,25,0.8);
-    eye("RightEye",width/2+26,2*height/8+30,25,0.8);
+    eye("LeftEye",width/2-20,2*height/8+30,20,0.8);
+    eye("RightEye",width/2+20,2*height/8+30,20,0.8);
     
     //mouth
     if (paint==true) {
@@ -160,10 +160,10 @@ function robot(){
     } else {
         fill(0);
     }
-    arc(width/2-5, 2*height/8+65, 25, 25, 0, PI + QUARTER_PI, CHORD);
+    arc(width/2-4, 2*height/8+55, 20, 20, 0, PI + QUARTER_PI, CHORD);
     stroke(255);
     noFill();
-    arc(width/2-5, 2*height/8+65, 25, 25, 0, PI + QUARTER_PI, OPEN);
+    arc(width/2-4, 2*height/8+55, 20, 20, 0, PI + QUARTER_PI, OPEN);
 }
 
 function eye(spec,xpos,ypos,size,sens){
