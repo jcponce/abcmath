@@ -20,7 +20,7 @@ function setup() {
     //Create button to reset simulation
     var button = createButton("Reset");
     button.mousePressed(resetC);
-    button.position(910,25);
+    button.position(710,25);
     button.style("font-size", "20px");
 }
 
