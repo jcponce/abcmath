@@ -20,7 +20,7 @@ function setup() {
     //Create button to reset simulation
     var button = createButton("Reset");
     button.mousePressed(resetC);
-    button.position(710,25);
+    button.position(width/2-20,7/8*height);
     button.style("font-size", "20px");
 }
 
@@ -37,11 +37,7 @@ function resetC(){
 
 function draw() {
     
-    if(clear==true){
-        fill(255);
-        rect(0,0,2*width,2*height);
-        clear=false;
-    }
+   
     
     
     robot();
@@ -79,7 +75,11 @@ function draw() {
      //   speed = 10;
     //}
     
-    
+    if(clear==true){
+        fill(255);
+        rect(0, 0, width*2, height*2);
+        clear=false;
+    }
     
 }
 
@@ -141,9 +141,9 @@ function robot(){
     //Body
     fill(0);
     stroke(0);
-    rect(width/2,2*height/8+40,100,60);//head
+    rect(width/2,2*height/8+40,100,70);//head
     rect(width/2,2*height/8+75,15,20);//neck
-    rect(width/2,2*height/8+125,80,90);//chest
+    rect(width/2,2*height/8+125,80,80);//chest
     
     rect(width/2-58,2*height/8+40,10,30);//right ear
     rect(width/2+58,2*height/8+40,10,30);//left ear
@@ -151,11 +151,11 @@ function robot(){
     rect(width/2-50,2*height/8+130,15,60);//right arm
     rect(width/2+50,2*height/8+130,15,60);//left arm
     
-    rect(width/2-15,2*height/8+202,15,60);//right leg
-    rect(width/2+15,2*height/8+202,15,60);//left leg
+    rect(width/2-15,2*height/8+195,15,55);//right leg
+    rect(width/2+15,2*height/8+195,15,55);//left leg
     
-    rect(width/2-25,2*height/8,10,13);//right antena
-    rect(width/2+25,2*height/8,10,13);//left antena
+    rect(width/2-25,2*height/8-3,10,10);//right antena
+    rect(width/2+25,2*height/8-3,10,10);//left antena
     
     //Eyes
     eye("LeftEye",width/2-20,2*height/8+30,20,0.8);
