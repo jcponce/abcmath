@@ -9,7 +9,7 @@ let clear = false;
 
 
 function setup() {
-    createCanvas(WIDTH, HEIGHT);
+    createCanvas(windowWidth, windowHeight);
     background(255);
     //noStroke();
     colorMode(HSB);
