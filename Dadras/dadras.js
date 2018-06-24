@@ -24,8 +24,8 @@ let numMax = 500;
 let t = 0;
 let h = 0.01;
 let currentParticle = 0;
-let widthApplet = 1000;
-let heightApplet = 700;
+let widthApplet = windowWidth;
+let heightApplet = windowHeight;
 
 let a = 3;
 let b = 2.7;
