@@ -55,7 +55,7 @@ function draw() {
     
     fill(color,255,255,1);
     stroke(color,255,255,1);
-    hearts(width/2+22, 2*height/8+145, 10*(sin(speed*beating)+2),10*(sin(speed*beating)+2));
+    hearts(width/2+10, 2*height/8+105, 6*(sin(speed*beating)+2),6*(sin(speed*beating)+2));
     beating += PI/200;
     
     fill(color, 255, 255);
