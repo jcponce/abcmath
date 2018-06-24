@@ -61,16 +61,23 @@ function draw() {
     fill(color, 255, 255);
     stroke(color, 0, 1);
     
+    
+    
     let xh = random(-splatter, splatter);
     let yh = random(-splatter, splatter);
     
-    let x = new regularPolygon(xh + mouseX, yh + mouseY);
-    if(paint==true){
-        speed = 30;
+    var x = new regularPolygon(xh + mouseX, yh + mouseY);
+    if(mouseIsPressed){
         x.display();
-    }else{
-        speed = 10;
-    }
+        speed = 30;
+    }else speed = 10;
+    //let x = new regularPolygon(xh + mouseX, yh + mouseY);
+    //if(paint==true){
+    //    speed = 30;
+    //    x.display();
+    //}else{
+     //   speed = 10;
+    //}
     
     
     
