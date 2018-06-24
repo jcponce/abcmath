@@ -1,7 +1,7 @@
 let color = 360;
 let splatter = 50;
-let WIDTH = 1090;
-let HEIGHT = 736;
+let WIDTH = 810;
+let HEIGHT = 560;
 let paint = false;
 let beating = 0;
 let speed;
