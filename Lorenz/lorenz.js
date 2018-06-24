@@ -24,8 +24,6 @@ let numMax = 600;
 let t = 0;
 let h = 0.009;
 let currentParticle = 0;
-let widthApplet = windowWidth;
-let heightApplet = windowHeight;
 
 let p = 10.0;
 let r = 28.0;
@@ -67,8 +65,8 @@ function setup() {
 } 
 
 function windowResized() {
-  resizeCanvas(widthApplet, heightApplet);
-  easycam.setViewport([0, 0, widthApplet, heightApplet]);
+  resizeCanvas(windowWidth, windowHeight);
+  easycam.setViewport([0, 0, windowWidth, windowHeight]);
 }
 
 function draw(){
