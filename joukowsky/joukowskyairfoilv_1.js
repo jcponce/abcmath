@@ -186,9 +186,9 @@ class Particle{
         this.radius = random(3, 5);
         this.h = _h;
         this.op = random(199,200);
-        this.r = random(0,255);
-        this.g = random(220,255);
-        this.b = random(0,255);
+        this.r = random(0);
+        this.g = random(164,255);
+        this.b = random(255);
     }
     
     update() {
