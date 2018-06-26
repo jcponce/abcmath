@@ -128,7 +128,7 @@ function keyTyped() {
 
 function createGUI() {
     var blank = 10;
-    var runningX = width * 0.1;
+    var runningX = width * 0.05;
     var p_back = "#4d170b";
     var m_back = "#0b3e4d";
     
@@ -173,7 +173,7 @@ function createGUI() {
     runningX += blank + a_plus_b.width;
     a_minus_b.position(runningX, (height * 0.85));
     
-    runningX = width * 0.1;
+    runningX = width * 0.05;
     var blankY = 10;
     
     layer_p = createElement("span", "Layer: " + layer + " - ");
