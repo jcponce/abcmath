@@ -184,8 +184,8 @@ function createGUI() {
     l_plus_b = createButton("Plus");
     l_plus_b.mousePressed(function() {
                           var isOk = true;
-                          if (layer == 5) isOk = confirm("This level is a very heavy processing.\n If you have not enough performance, you shoud be back to the previous level.")
-                          if (layer < 6 && isOk) layer += 1;
+                          //if (layer == 5) isOk = confirm("This level is a very heavy processing.\n If you have not enough performance, you shoud be back to the previous level.")
+                          if (layer < 5) layer += 1;
                           layer_p.html("Layer: " + layer + " - ");
                           });
     l_plus_b.style("width", gui_w);
