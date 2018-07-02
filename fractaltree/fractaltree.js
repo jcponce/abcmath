@@ -3,7 +3,7 @@ let aSlider, lSlider, rSlider;
 let checkbox;
 let r1, r2;
 
-let WIDTH = 810;
+let WIDTH = 800;
 let HEIGHT = 510;
 
 
