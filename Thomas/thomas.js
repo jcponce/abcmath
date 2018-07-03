@@ -24,8 +24,14 @@ let numMax = 600;
 let t = 0;
 let h = 0.01;
 let currentParticle = 0;
-let widthApplet = 1000;
-let heightApplet = 700;
+
+// settings and presets
+let parDef = {
+Attractor: 'Thomas',
+b: 0.208186,
+ResetParticles: initSketch,
+Preset: function() { this.b = 0.208186; },
+};
 
 let b = 0.208186;
 let x = 1.1;
@@ -37,6 +43,13 @@ let points = new Array();
 function setup() { 
  
   pixelDensity(1);
+    
+    // create gui (dat.gui)
+    let gui = new dat.GUI();
+    gui.add(parDef, 'Attractor');
+    gui.add(parDef, 'b'  , 0, 0.95  ).listen();
+    gui.add(parDef, 'ResetParticles'  );
+    gui.add(parDef, 'Preset'  );
   
   let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   setAttributes('antialias', true);
@@ -45,10 +58,6 @@ function setup() {
   
   easycam = new Dw.EasyCam(this._renderer, {distance : 10});
     
-    let m = 20;
-    for (let i=0; i<numMax; i++) {
-        particles[i] = new Particle(random(-m, m), random(-m, m), random(-m, m), t, h);
-    }
     
     for(let i = 0; i< 1300; i++){
         let dt = 0.04;
@@ -62,11 +71,26 @@ function setup() {
         points.push(new p5.Vector(x, y, z));
     }
     
+    // place initial samples
+    initSketch();
+    
 } 
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   easycam.setViewport([0, 0, windowWidth, windowHeight]);
+    
+    // place initial samples
+    initSketch();
+}
+
+function initSketch(){
+    
+    let m = 20;
+    for (let i=0; i<numMax; i++) {
+        particles[i] = new Particle(random(-m, m), random(-m, m), random(-m, m), t, h);
+    }
+    
 }
 
 function draw(){
@@ -116,15 +140,15 @@ function draw(){
 
 let speed = 6;
 function componentFX(t, x, y, z){
-    return speed * ( sin(y) - b * x);//Change this function
+    return speed * ( sin(y) - parDef.b * x);//Change this function
 }
 
 function componentFY(t, x, y, z){
-    return speed * (  sin(z) - b * y  );//Change this function
+    return speed * (  sin(z) - parDef.b * y  );//Change this function
 }
 
 function componentFZ(t, x, y, z){
-    return speed * ( sin(x) - b * z  );//Change this function
+    return speed * ( sin(x) - parDef.b * z  );//Change this function
 }
 
 //Particle definition and motion
@@ -163,14 +187,12 @@ class Particle{
     }
     
     display() {
-        //ambientMaterial(128,255,0);
-        ambientMaterial(this.r, this.b, this.g);
-        noStroke();
         push();
         translate(this.x, this.y, this.z);
-        sphere(this.radius, 9, 9);
+        ambientMaterial(this.r, this.b, this.g);
+        noStroke();
+        sphere(this.radius, 6, 6);
         pop();
-        //sphere(-(this.x), this.y, this.z, 2*this.radius, 2*this.radius);
     }
     
 }

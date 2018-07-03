@@ -25,8 +25,19 @@ let t = 0;
 let h = 0.01;
 let currentParticle = 0;
 
-let widthApplet = 1000;
-let heightApplet = 700;
+// settings and presets
+let parDef = {
+Attractor: 'Aizawa',
+Speed: 1.0,
+a: 0.95,
+b: 0.7,
+c: 0.6,
+d: 3.5,
+e: 0.25,
+f: 0.1,
+ResetParticles: initSketch,
+Preset: function() { this.Speed = 1.0; this.a = 0.95; this.b = 0.7; this.c = 0.6; this.d = 3.5; this.e = 0.25; this.f = 0.1; },
+};
 
 //parameters
 let P = 1;
@@ -46,9 +57,20 @@ let points = new Array();
 
 function setup() {
     
-   
-    
     pixelDensity(1);
+    
+    // create gui (dat.gui)
+    let gui = new dat.GUI();
+    gui.add(parDef, 'Attractor');
+    gui.add(parDef, 'a'   , -0.95, 0.95  ).listen();
+    gui.add(parDef, 'b'   , -0.8, 0.8  ).listen();
+    gui.add(parDef, 'c'   , -0.7, 0.7  ).listen();
+    gui.add(parDef, 'd'   , -4.5, 4.5  ).listen();
+    gui.add(parDef, 'e'   , -0.35, 0.35  ).listen();
+    gui.add(parDef, 'f'   , -0.25, 0.25  ).listen();
+    gui.add(parDef, 'Speed'   , 0, 3  ).listen();
+    gui.add(parDef, 'ResetParticles'  );
+    gui.add(parDef, 'Preset'  );
     
     let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
     setAttributes('antialias', true);
@@ -57,10 +79,6 @@ function setup() {
     
     easycam = new Dw.EasyCam(this._renderer, {distance : 4});
     
-    let m = 1;
-    for (let i=0; i<numMax; i++) {
-        particles[i] = new Particle(random(-m, m), random(-m, m), random(-m+1, m+1), t, h);
-    }
     
     for(let i = 0; i< 2800; i++){
         let dt = 0.02;
@@ -73,12 +91,28 @@ function setup() {
         
         points.push(new p5.Vector(x, y, z));
     }
+    
+    // place initial samples
+    initSketch();
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     easycam.setViewport([0,0,windowWidth, windowHeight]);
+    
+    // place initial samples
+    initSketch();
 }
+
+function initSketch(){
+    
+    let m = 1.5;
+    for (let i=0; i<numMax; i++) {
+        particles[i] = new Particle(random(-m, m), random(-m, m), random(-m+1, m+1), t, h);
+    }
+    
+}
+
 
 function draw(){
     
@@ -124,15 +158,15 @@ function draw(){
 
 let speed = 0.5;
 function componentFX(t, x, y, z){
-    return speed * ( P*((z - b) * x - d * y) );//Change this function
+    return speed * ( parDef.Speed * ((z - parDef.b) * x - parDef.d * y) );//Change this function
 }
 
 function componentFY(t, x, y, z){
-    return speed * (  P*(d * x + (z - b) * y) );//Change this function
+    return speed * (  parDef.Speed * (parDef.d * x + (z - parDef.b) * y) );//Change this function
 }
 
 function componentFZ(t, x, y, z){
-    return speed * ( P*(c + a * z - z*z*z/3 - (x*x+y*y)*(1+e*z)+f*z*x*x*x)  );//Change this function
+    return speed * ( parDef.Speed * (parDef.c + parDef.a * z - z*z*z/3 - (x*x+y*y)*(1+parDef.e*z)+parDef.f*z*x*x*x)  );//Change this function
 }
 
 //Particle definition and motion
@@ -175,7 +209,7 @@ class Particle{
         translate(this.x, this.y, this.z);
         ambientMaterial(this.r, this.b, this.g);
         noStroke();
-        sphere(this.radius, 9, 9);
+        sphere(this.radius, 7, 6);
         pop();
     }
     
