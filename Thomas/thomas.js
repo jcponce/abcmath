@@ -101,17 +101,12 @@ function draw(){
   // BG
   background(0);
     
-    let hu = 0;
+    
     beginShape(POINTS);
     for (let v of points) {
-        stroke(hu, 193, 255);
-        strokeWeight(0.02);
+        stroke(204, 255, 255);
+        strokeWeight(0.025);
         vertex(v.x, v.y, v.z);
-        
-        hu += 1;
-        if (hu > 255) {
-            hu = 0;
-        }
     }
     endShape();
     

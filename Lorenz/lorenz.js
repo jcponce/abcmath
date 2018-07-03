@@ -92,9 +92,9 @@ function windowResized() {
 }
 
 function initSketch(){
-    let m = 30;
+    let m = 40;
     for (let i=0; i<numMax; i++) {
-        particles[i] = new Particle(random(-m, m), random(-m, m), random(-m, m), t, h);
+        particles[i] = new Particle(random(-m, m), random(-m, m), random(-m, m)+20, t, h);
     }
 }
 
@@ -109,8 +109,8 @@ function draw(){
     let hu = 0;
     beginShape(POINTS);
     for (let v of points) {
-        stroke(128, 255, 170);
-        strokeWeight(0.07);
+        stroke(128, 200, 255);
+        strokeWeight(0.09);
         vertex(v.x, v.y, v.z);
         
         hu += 1;
