@@ -82,7 +82,7 @@ function draw() {
     //background(0);
     
     stroke(255);
-    translate(width / 2, height / 2);
+    translate(width / 2+100, height / 2);
     for (var i = 0; i < lines.length; i++) {
         lines[i].display();
     }
