@@ -20,28 +20,37 @@ var sliderAngle;
 
 var sliderO;
 var sliderP;
-
-
+var text1,text2,text3,text4;
 
 function setup() {
     
-    var runningX = width * 0.25;
+    var runningX = 20;
+    var runningY = windowHeight*1/6;
 
     sliderLayer = createSlider(0, 4, 0, 1);
-    sliderLayer.position(runningX, height * 0.85);
+    sliderLayer.position(runningX, runningY);
     sliderLayer.style('width', '180px');
     
     
+    
     sliderAngle = createSlider(2, 13, 3, 1);
-    sliderAngle.position(runningX, height * 2*0.85);
+    sliderAngle.position(runningX, 2*runningY);
     sliderAngle.style('width', '180px');
     
     sliderO = createSlider(-2, 2, -0.66, 0.01);
-    sliderO.position(runningX, height * 5*0.85);
+    sliderO.position(runningX, 4*runningY);
     sliderO.style('width', '180px');
+    
     sliderP = createSlider(0, 3.14, 1.57, 0.01);
-    sliderP.position(runningX, height * 6*0.85);
+    sliderP.position(runningX, 5*runningY);
     sliderP.style('width', '180px');
+    
+    /*text1 = createElement("span", "Layer: " + sliderLayer.value() + " - ");
+    text1.position(runningX, height * 0.3*0.85);
+    text1.style("color", "#fff");
+    text1.style("font-size", "20px");
+    text1.mouseReleased(function(){text1.html("Layer: " + sliderLayer.value() + " - ");});
+    */
     
     var canvas = createCanvas(windowWidth, windowHeight);
     startCol = color("#ffffff");
@@ -57,9 +66,20 @@ function setup() {
 }
 
 function draw() {
+    background(0);
+    textSize(20);
+    fill(255);
+    strokeWeight(1);
+    var textP = 20;
+    var textQ = windowHeight*1/6;
+    text('Step - ' + sliderLayer.value(), textP, textQ-7);
+    text('Angle -  ' + sliderAngle.value(), textP, 2*textQ-7);
+    
+    text('Convex/Concave', textP, 4*textQ-7);
+    text('Rotate', textP, 5*textQ-7);
     
     initLines();
-    background(0);
+    //background(0);
     
     stroke(255);
     translate(width / 2, height / 2);
@@ -68,14 +88,6 @@ function draw() {
     }
     translate(-width / 2, -height / 2);
     
-    textSize(20);
-    fill(255);
-    strokeWeight(1);
-    text('Step - ' + sliderLayer.value(), width*1/30, height * 3/30);
-    text('Angle -  ' + sliderAngle.value(), width*1/30, height * 7/30);
-    
-    text('Convex/Concave', width*1/30, height * 18/30);
-    text('Rotate', width*1/30, height * 22/30);
     
 }
 
