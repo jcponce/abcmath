@@ -29,21 +29,21 @@ function setup() {
 
     sliderLayer = createSlider(0, 4, 0, 1);
     sliderLayer.position(runningX, runningY);
-    sliderLayer.style('width', '180px');
+    sliderLayer.style('width', '100px');
     
     
     
     sliderAngle = createSlider(2, 13, 3, 1);
     sliderAngle.position(runningX, 2*runningY);
-    sliderAngle.style('width', '180px');
+    sliderAngle.style('width', '100px');
     
     sliderO = createSlider(-2, 2, -0.66, 0.01);
     sliderO.position(runningX, 4*runningY);
-    sliderO.style('width', '180px');
+    sliderO.style('width', '100px');
     
     sliderP = createSlider(0, 3.14, 1.57, 0.01);
     sliderP.position(runningX, 5*runningY);
-    sliderP.style('width', '180px');
+    sliderP.style('width', '100px');
     
     /*text1 = createElement("span", "Layer: " + sliderLayer.value() + " - ");
     text1.position(runningX, height * 0.3*0.85);
