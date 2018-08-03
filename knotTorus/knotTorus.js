@@ -50,7 +50,7 @@ function setup() {
     
     console.log(Dw.EasyCam.INFO);
     
-    easycam = new Dw.EasyCam(this._renderer, {distance : 9});
+    easycam = new Dw.EasyCam(this._renderer, {distance : 10});
     
     
 }
