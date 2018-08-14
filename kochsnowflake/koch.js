@@ -31,13 +31,11 @@ function setup() {
     sliderLayer.position(runningX, runningY);
     sliderLayer.style('width', '140px');
     
-    
-    
     sliderAngle = createSlider(2, 13, 3, 1);
     sliderAngle.position(runningX, 2*runningY);
     sliderAngle.style('width', '140px');
     
-    sliderO = createSlider(-2, 2, -0.66, 0.01);
+    sliderO = createSlider(-1, 1, -0.66, 0.01);
     sliderO.position(runningX, 4*runningY);
     sliderO.style('width', '140px');
     
