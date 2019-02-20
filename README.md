@@ -1,7 +1,7 @@
 # abcmath
 ABC math applets
 
-Hi! Here you can find all the source code for the website [ABC of Mathematics](www.abcmath.xyz). 
+Hi! Here you can find all the source code for the website [ABC of Mathematics](https://www.abcmath.xyz). 
 
 ## License
 
